@@ -1,0 +1,30 @@
+version: '2'
+
+volumes:
+  nextcloud:
+  db:
+  data:
+
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --skip-innodb-read-only-compressed
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234osradar
+      - MYSQL_PASSWORD=1234osradar
+      - MYSQL_DATABASE=nextclouddb
+      - MYSQL_USER=nextclouduser
+
+  app:
+    image: nextcloud
+    ports:
+      - 1234:80
+    links:
+      - db
+    volumes:
+      - nextcloud:/var/www/html
+      - data:/var/www/html/data
+    restart: always
