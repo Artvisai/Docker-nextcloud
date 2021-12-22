@@ -1,7 +1,8 @@
 Docker & Docker-compose install:
 https://serveradmin.ru/kak-ustanovit-docker-na-centos/
 
-Installing nextcloud: Folder for container:
+Installing nextcloud: 
+Folder for container:
 	$ mkdir nextcloud && cd nextcloud
 Make file for docker:
 	$ vi docker-compose.yml
