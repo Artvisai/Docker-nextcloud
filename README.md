@@ -1,6 +1,9 @@
 Docker & Docker-compose install:
 https://serveradmin.ru/kak-ustanovit-docker-na-centos/
 
+Installing MariaDB:
+https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-debian-10
+
 Installing nextcloud:
 Folder for container:
 	$ mkdir nextcloud && cd nextcloud
@@ -8,7 +11,7 @@ Make file for docker:
 	$ vi docker-compose.yml
 Write it in this file:
 version: '2'
-
+<
 volumes:
   nextcloud:
   db:
@@ -37,7 +40,7 @@ services:
       - nextcloud:/var/www/html
       - data:/var/www/html/data
     restart: always
-
+>
 Run docker-compose:
   $ docker-compose up -d
 
